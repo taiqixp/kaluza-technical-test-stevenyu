@@ -1,0 +1,40 @@
+{
+  "name": "kaluza_technical_test",
+  "version": "1.0.0",
+  "description": "BDD API testing framework for agify.io using TypeScript and Cucumber",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "cucumber-js",
+    "test:dry": "cucumber-js --dry-run",
+    "test:parallel": "cucumber-js --parallel 2",
+    "clean": "rm -rf dist reports",
+    "pretest": "npm run build",
+    "lint": "echo 'Linting not configured yet'",
+    "start": "npm run test"
+  },
+  "keywords": [
+    "bdd",
+    "cucumber",
+    "typescript",
+    "api-testing",
+    "agify.io",
+    "qa-automation"
+  ],
+  "author": "QA Engineer - Kaluza Technical Test",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.9"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.0.1",
+    "@types/axios": "^0.14.4",
+    "@types/node": "^22.10.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  }
+}
