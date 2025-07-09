@@ -1,8 +1,7 @@
 module.exports = {
   default: {
     require: [
-      'ts-node/register',
-      'src/steps/**/*.ts'
+      'dist/steps/**/*.js'
     ],
     format: [
       'progress-bar',
