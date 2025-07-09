@@ -33,21 +33,42 @@ export class ApiClient {
     }
   }
 
-  async getAgeByNameWithCountry(name: string, countryId: string): Promise<any> {
+  async getAgeByNames(names: string[]): Promise<any> {
     try {
+      // Use axios paramsSerializer to create name[]=value&name[]=value format
       const response = await this.client.get('/', {
-        params: { 
-          name,
-          country_id: countryId 
+        params: { name: names },
+        paramsSerializer: {
+          indexes: null // This creates name[]=value&name[]=value format
         }
       });
       return response;
     } catch (error) {
-      throw new Error(`API request failed: ${error}`);
+      throw new Error(`Batch API request failed: ${error}`);
     }
   }
 
-  getBaseURL(): string {
-    return this.baseURL;
+  // For testing unsupported HTTP methods
+  async makePostRequest(): Promise<any> {
+    try {
+      const response = await this.client.post('/', {
+        name: 'testuser'
+      });
+      return response;
+    } catch (error) {
+      throw new Error(`POST request failed: ${error}`);
+    }
+  }
+
+  // For testing wrong endpoints
+  async makeRequestToEndpoint(endpoint: string): Promise<any> {
+    try {
+      const response = await this.client.get(endpoint, {
+        params: { name: 'testuser' }
+      });
+      return response;
+    } catch (error) {
+      throw new Error(`Request to ${endpoint} failed: ${error}`);
+    }
   }
 } 

@@ -8,17 +8,6 @@ function assert(condition: boolean, message: string): void {
   }
 }
 
-// Background step
-Given('the Agify.io API is available', async function (this: World) {
-  // Basic connectivity check
-  try {
-    const response = await this.apiClient.getAgeByName('test');
-    this.setResponse(response);
-  } catch (error) {
-    throw new Error(`API is not available: ${error}`);
-  }
-});
-
 // When steps - API calls
 When('I request age prediction for name {string}', async function (this: World, name: string) {
   const startTime = Date.now();
@@ -28,46 +17,29 @@ When('I request age prediction for name {string}', async function (this: World, 
     
     this.setResponse(response);
     this.storeTestData('responseTime', endTime - startTime);
-    this.storeTestData('requestedName', name);
   } catch (error) {
     this.setError(error as Error);
   }
 });
 
-When('I request age prediction for name {string} with country {string}', async function (this: World, name: string, country: string) {
-  const startTime = Date.now();
+When('I request age prediction for name {string} again', async function (this: World, name: string) {
   try {
-    const response = await this.apiClient.getAgeByNameWithCountry(name, country);
-    const endTime = Date.now();
-    
-    this.setResponse(response);
-    this.storeTestData('responseTime', endTime - startTime);
-    this.storeTestData('requestedName', name);
-    this.storeTestData('requestedCountry', country);
+    const response = await this.apiClient.getAgeByName(name);
+    this.storeTestData('secondResponse', response);
   } catch (error) {
     this.setError(error as Error);
   }
 });
 
-When('I send a request without a name parameter', async function (this: World) {
-  try {
-    // This will likely result in an error or empty response
-    await this.apiClient.getAgeByName('');
-  } catch (error) {
-    this.setError(error as Error);
-  }
-});
-
-When('I send multiple parallel requests for different names', async function (this: World) {
-  const names = ['alice', 'bob', 'charlie', 'diana', 'edward'];
+When('I send a batch request for multiple names', async function (this: World) {
+  const names = ['michael', 'matthew', 'jane'];
   const startTime = Date.now();
   
   try {
-    const promises = names.map(name => this.apiClient.getAgeByName(name));
-    const responses = await Promise.all(promises);
+    const response = await this.apiClient.getAgeByNames(names);
     const endTime = Date.now();
     
-    this.storeTestData('batchResponses', responses);
+    this.setResponse(response);
     this.storeTestData('batchResponseTime', endTime - startTime);
     this.storeTestData('batchNames', names);
   } catch (error) {
@@ -75,25 +47,19 @@ When('I send multiple parallel requests for different names', async function (th
   }
 });
 
-When('I send many requests in quick succession', async function (this: World) {
-  const requests = [];
-  for (let i = 0; i < 20; i++) {
-    requests.push(this.apiClient.getAgeByName(`user${i}`));
-  }
-  
+When('I send a POST request to the API', async function (this: World) {
   try {
-    const responses = await Promise.all(requests);
-    this.storeTestData('rapidResponses', responses);
+    const response = await this.apiClient.makePostRequest();
+    this.setResponse(response);
   } catch (error) {
     this.setError(error as Error);
   }
 });
 
-// Multiple consecutive requests steps
-When('I request age prediction for name {string} again', async function (this: World, name: string) {
+When('I request age prediction from wrong endpoint {string}', async function (this: World, endpoint: string) {
   try {
-    const response = await this.apiClient.getAgeByName(name);
-    this.storeTestData('secondResponse', response);
+    const response = await this.apiClient.makeRequestToEndpoint(endpoint);
+    this.setResponse(response);
   } catch (error) {
     this.setError(error as Error);
   }
@@ -105,10 +71,6 @@ Then('the API should return a successful response', function (this: World) {
   
   const response = this.getResponse();
   assert(response.status === 200, `Expected status 200 but got ${response.status}`);
-});
-
-Then('the API should return an error response', function (this: World) {
-  assert(this.hasError() || this.getResponse().status !== 200, 'Expected error response but got successful response');
 });
 
 Then('the response should contain the name {string}', function (this: World, expectedName: string) {
@@ -135,67 +97,21 @@ Then('the response should have the correct JSON structure', function (this: Worl
   assert('count' in responseData, 'Response should contain count field');
 });
 
-Then('the response field {string} should be a {string}', function (this: World, fieldName: string, expectedType: string) {
-  const responseData = this.getResponseData();
-  const actualType = typeof responseData[fieldName as keyof typeof responseData];
-  assert(actualType === expectedType, `Expected ${fieldName} to be ${expectedType} but got ${actualType}`);
-});
-
 Then('the response count might be 0 for uncommon names', function (this: World) {
   const responseData = this.getResponseData();
   assert(typeof responseData.count === 'number', `Expected count to be a number but got ${typeof responseData.count}`);
   assert(responseData.count >= 0, `Expected count to be non-negative but got ${responseData.count}`);
 });
 
-Then('the response should indicate missing or invalid name parameter', function (this: World) {
-  // This depends on how the API actually handles missing parameters
-  // For now, we'll check if there's an error or empty response
-  assert(this.hasError() || this.getResponse().status !== 200, 'Expected error for missing/invalid name parameter');
-});
-
-Then('the response should indicate missing name parameter', function (this: World) {
-  assert(this.hasError() || this.getResponse().status !== 200, 'Expected error for missing name parameter');
+Then('the response should have count 0 and null age', function (this: World) {
+  const responseData = this.getResponseData();
+  assert(responseData.count === 0, `Expected count to be 0 but got ${responseData.count}`);
+  assert(responseData.age === null, `Expected age to be null but got ${responseData.age}`);
 });
 
 Then('the response time should be less than {int} seconds', function (this: World, maxSeconds: number) {
   const responseTime = this.getTestData('responseTime');
   assert(responseTime < maxSeconds * 1000, `Expected response time to be less than ${maxSeconds} seconds but got ${responseTime}ms`);
-});
-
-Then('all API requests should return successful responses', function (this: World) {
-  const batchResponses = this.getTestData('batchResponses');
-  assert(Array.isArray(batchResponses), 'Expected batch responses to be an array');
-  
-  for (const response of batchResponses) {
-    assert(response.status === 200, `Expected all responses to have status 200 but found ${response.status}`);
-  }
-});
-
-Then('each response should contain the correct corresponding name', function (this: World) {
-  const batchResponses = this.getTestData('batchResponses');
-  const batchNames = this.getTestData('batchNames');
-  
-  assert(batchResponses.length === batchNames.length, 'Number of responses should match number of names');
-  
-  for (let i = 0; i < batchResponses.length; i++) {
-    const response = batchResponses[i];
-    const expectedName = batchNames[i];
-    assert(response.data.name === expectedName, `Expected name '${expectedName}' but got '${response.data.name}'`);
-  }
-});
-
-Then('all requests should complete successfully', function (this: World) {
-  const batchResponses = this.getTestData('batchResponses');
-  assert(Array.isArray(batchResponses), 'Expected batch responses to be an array');
-  assert(batchResponses.length > 0, 'Expected at least one response');
-});
-
-Then('the total time should be reasonable for batch processing', function (this: World) {
-  const batchResponseTime = this.getTestData('batchResponseTime');
-  const batchNames = this.getTestData('batchNames');
-  const expectedMaxTime = batchNames.length * 2000; // 2 seconds per request should be reasonable
-  
-  assert(batchResponseTime < expectedMaxTime, `Batch processing took too long: ${batchResponseTime}ms`);
 });
 
 Then('both responses should return the same age', function (this: World) {
@@ -214,34 +130,67 @@ Then('both responses should return the same count', function (this: World) {
     `Expected both responses to have same count but got ${firstResponse.count} and ${secondResponse.data.count}`);
 });
 
-Then('the count for {string} should be significantly higher than {string}', function (this: World, popularName: string, rareName: string) {
-  // This step would need to be implemented based on storing multiple responses
-  // For now, we'll implement a basic version
-  const currentResponse = this.getResponseData();
-  assert(currentResponse.count > 0, 'Expected count to be positive for comparison');
-});
-
-Then('both responses should have valid numeric counts', function (this: World) {
-  const firstResponse = this.getResponseData();
-  const secondResponse = this.getTestData('secondResponse');
+Then('the batch response should contain all requested names', function (this: World) {
+  const response = this.getResponse();
+  const responseData = response.data;
+  const batchNames = this.getTestData('batchNames');
   
-  assert(typeof firstResponse.count === 'number' && firstResponse.count >= 0, 
-    `Expected first response count to be non-negative number but got ${firstResponse.count}`);
-  assert(typeof secondResponse.data.count === 'number' && secondResponse.data.count >= 0, 
-    `Expected second response count to be non-negative number but got ${secondResponse.data.count}`);
-});
-
-Then('the API should either process all requests successfully', function (this: World) {
-  const rapidResponses = this.getTestData('rapidResponses');
-  if (rapidResponses) {
-    for (const response of rapidResponses) {
-      assert(response.status === 200, `Expected all responses to be successful but found ${response.status}`);
-    }
+  assert(Array.isArray(responseData), 'Expected batch response to be an array');
+  assert(responseData.length === batchNames.length, `Expected ${batchNames.length} results but got ${responseData.length}`);
+  
+  for (let i = 0; i < batchNames.length; i++) {
+    const expectedName = batchNames[i];
+    const result = responseData[i];
+    
+    assert(result.name === expectedName, `Expected name '${expectedName}' but got '${result.name}' at index ${i}`);
+    assert(typeof result.age === 'number' || result.age === null, `Expected age to be number or null but got ${typeof result.age} at index ${i}`);
+    assert(typeof result.count === 'number', `Expected count to be number but got ${typeof result.count} at index ${i}`);
   }
 });
 
-Then('Or return appropriate rate limiting responses', function (this: World) {
-  // This is an alternative to the previous step
-  // Implementation depends on actual API behavior
-  assert(true, 'Rate limiting check completed');
+Then('the batch response should be faster than individual requests', function (this: World) {
+  const batchResponseTime = this.getTestData('batchResponseTime');
+  const batchNames = this.getTestData('batchNames');
+  
+  const estimatedIndividualTime = batchNames.length * 100;
+  
+  assert(batchResponseTime < estimatedIndividualTime, 
+    `Expected batch request (${batchResponseTime}ms) to be faster than estimated individual requests (${estimatedIndividualTime}ms)`);
+});
+
+Then('the response should not execute any code', function (this: World) {
+  const response = this.getResponse();
+  const responseData = this.getResponseData();
+  
+  assert(response.status === 200, `Expected status 200 but got ${response.status}`);
+  assert(typeof responseData === 'object', 'Expected response to be a JSON object');
+  assert('name' in responseData, 'Response should contain name field');
+  assert(typeof responseData.name === 'string', 'Name field should be a string');
+  assert(typeof responseData.age === 'number' || responseData.age === null, 
+    'Age field should be number or null');
+  assert(typeof responseData.count === 'number', 'Count field should be number');
+});
+
+Then('the API should return a method not allowed error', function (this: World) {
+  assert(this.hasError() || this.getResponse().status === 405, 
+    'Expected method not allowed error (405) but got different response');
+});
+
+Then('the response status should be {int}', function (this: World, expectedStatus: number) {
+  if (this.hasError()) {
+    const error = this.getError();
+    if (error.message.includes('405')) {
+      assert(expectedStatus === 405, `Expected status ${expectedStatus} but got 405 from error`);
+    } else {
+      assert(false, `Expected status ${expectedStatus} but got error: ${error.message}`);
+    }
+  } else {
+    const response = this.getResponse();
+    assert(response.status === expectedStatus, `Expected status ${expectedStatus} but got ${response.status}`);
+  }
+});
+
+Then('the API should return a not found error', function (this: World) {
+  assert(this.hasError() || this.getResponse().status === 404, 
+    'Expected not found error (404) but got different response');
 }); 

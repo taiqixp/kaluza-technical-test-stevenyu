@@ -1,15 +1,27 @@
 {
-  "name": "kaluza_technical_test",
+  "name": "kaluza-technical-test",
   "version": "1.0.0",
-  "description": "BDD API testing framework for agify.io using TypeScript and Cucumber",
+  "description": "BDD API testing framework for agify.io",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "test": "cucumber-js",
+    "test:core": "cucumber-js --tags '@core'",
+    "test:positive": "cucumber-js --tags '@positive'",
+    "test:edge": "cucumber-js --tags '@edge-case'",
+    "test:batch": "cucumber-js --tags '@batch'",
+    "test:security": "cucumber-js --tags '@security'",
+    "test:negative": "cucumber-js --tags '@negative'",
     "test:dry": "cucumber-js --dry-run",
     "test:parallel": "cucumber-js --parallel 2",
     "clean": "rm -rf dist reports",
     "pretest": "npm run build",
+    "pretest:core": "npm run build",
+    "pretest:positive": "npm run build",
+    "pretest:edge": "npm run build",
+    "pretest:batch": "npm run build",
+    "pretest:security": "npm run build",
+    "pretest:negative": "npm run build",
     "lint": "echo 'Linting not configured yet'",
     "start": "npm run test"
   },
@@ -21,7 +33,7 @@
     "agify.io",
     "qa-automation"
   ],
-  "author": "QA Engineer - Kaluza Technical Test",
+  "author": "Steven Yu",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.7.9"

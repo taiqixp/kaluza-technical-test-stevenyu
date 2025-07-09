@@ -1,278 +1,116 @@
 # Agify.io API Testing Framework
 
-A comprehensive BDD (Behavior-Driven Development) testing framework for the [agify.io](https://agify.io) API, built with TypeScript and Cucumber.
+A BDD testing framework for the [agify.io](https://agify.io) API using TypeScript and Cucumber.
 
-## 📋 Table of Contents
+## Overview
 
-- [Overview](#overview)
-- [Features](#features)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Test Scenarios](#test-scenarios)
-- [Project Structure](#project-structure)
-- [Configuration](#configuration)
-- [Running Tests](#running-tests)
-- [Reports](#reports)
-- [Contributing](#contributing)
-- [Technical Details](#technical-details)
+This project tests the agify.io API which predicts age based on names. The API returns JSON with `name`, `age`, and `count` fields.
 
-## 🎯 Overview
+**API Details:**
+- Base URL: `https://api.agify.io`
+- Example: `https://api.agify.io?name=billybob` → `{"count":67,"name":"billybob","age":60}`
+- Free limit: 100 requests per day
 
-This project implements a comprehensive testing suite for the agify.io API using BDD methodology. The API provides age predictions based on names, and this framework validates its functionality, performance, and reliability.
-
-**About agify.io API:**
-- **Base URL**: `https://api.agify.io`
-- **Functionality**: Predicts age based on first names
-- **Example**: `https://api.agify.io?name=billybob` returns `{"count":67,"name":"billybob","age":60}`
-- **Free Usage**: Up to 100 names per day without API key
-- **Response Format**: JSON with `name`, `age`, and `count` fields
-
-## ✨ Features
-
-- **BDD Testing**: Human-readable test scenarios using Cucumber
-- **TypeScript**: Strongly-typed implementation for better maintainability
-- **Comprehensive Coverage**: Tests for positive, negative, edge cases, and performance
-- **API Client**: Robust HTTP client with error handling and timeout management
-- **Test Utilities**: Helper functions for data validation and test management
-- **Detailed Reporting**: HTML and JSON reports with test results
-- **Parallel Execution**: Support for running tests in parallel for faster execution
-- **Country-Specific Testing**: Support for testing localized age predictions
-- **Performance Monitoring**: Response time validation and performance metrics
-
-## 🔧 Prerequisites
-
-- **Node.js**: Version 16.0.0 or higher
-- **npm**: Version 8.0.0 or higher
-- **Internet Connection**: Required for API testing
-
-## 📦 Installation
-
-1. Clone or download the project
-2. Install dependencies:
+## Installation
 
 ```bash
 npm install
 ```
 
-## 🚀 Usage
+## Usage
 
-### Run All Tests
+### Basic Commands
 ```bash
+# Run all tests
 npm test
-```
 
-### Run Tests with Build
-```bash
-npm run build && npm test
-```
-
-### Run Specific Test Tags
-```bash
-# Run only smoke tests
-npx cucumber-js --tags "@smoke"
+# Run core tests (most important)
+npm run test:core
 
 # Run positive tests
-npx cucumber-js --tags "@positive"
+npm run test:positive
+
+# Run edge cases
+npm run test:edge
+
+# Run security tests
+npm run test:security
 
 # Run negative tests
-npx cucumber-js --tags "@negative"
+npm run test:negative
 
-# Run performance tests
-npx cucumber-js --tags "@performance"
-```
+# Run batch tests
+npm run test:batch
 
-### Run Tests in Parallel
-```bash
-npm run test:parallel
-```
-
-### Dry Run (Validate Scenarios)
-```bash
+# Dry run (no actual API calls)
 npm run test:dry
 ```
 
-## 📊 Test Scenarios
+## Test Scenarios
 
-### Core Functionality Tests
-- ✅ Basic age prediction for valid names
-- ✅ Response structure validation
-- ✅ Data type validation
-- ✅ Example name from requirements (`billybob`)
+### Core Tests (@core) - 3 scenarios
+- Required 'billybob' test from assignment
+- Common name test
+- Response structure validation
 
-### Edge Cases
-- ✅ Very short names (single character)
-- ✅ Long names
-- ✅ Names with special characters
-- ✅ Case sensitivity handling
-- ✅ International characters (José, etc.)
+### Positive Tests (@positive) - 6 scenarios
+- Various name combinations
+- Case sensitivity
+- Special characters
+- Long names
 
-### Negative Tests
-- ✅ Empty name parameter
-- ✅ Missing name parameter
-- ✅ Invalid inputs
+### Edge Cases (@edge-case) - 7 scenarios
+- Very short names
+- Empty parameters
+- Names with numbers
+- Names with spaces/hyphens
+- Uncommon names
 
-### Performance Tests
-- ✅ Response time validation
-- ✅ Batch request handling
-- ✅ Rate limiting behavior
+### Security Tests (@security) - 2 scenarios
+- XSS injection prevention
+- SQL injection prevention
 
-### Advanced Features
-- ✅ Country-specific predictions
-- ✅ Data consistency validation
-- ✅ Reliability testing
+### Other Tests
+- Batch processing (1 scenario)
+- Data validation (2 scenarios)
+- Error handling (2 scenarios)
+- Performance (1 scenario)
 
-## 📁 Project Structure
+**Total: 23 test scenarios**
+
+## Project Structure
 
 ```
-/
-├── src/                    # Source code
-│   ├── steps/             # Cucumber step definitions
-│   │   ├── agify-steps.ts # Main step definitions
-│   │   └── hooks.ts       # Test hooks and setup
-│   └── utils/             # Utility modules
-│       ├── api-client.ts  # HTTP client for agify.io API
-│       ├── world.ts       # Cucumber World class
-│       ├── test-helpers.ts # Test utility functions
-│       └── constants.ts   # Configuration constants
-├── features/              # BDD feature files
-│   ├── agify-api.feature  # Main API tests
-│   └── agify-api-advanced.feature # Advanced tests
-├── reports/              # Test reports (generated)
-├── dist/                 # Compiled TypeScript (generated)
-├── cucumber.js           # Cucumber configuration
-├── tsconfig.json         # TypeScript configuration
-├── package.json          # Project dependencies
-└── README.md             # This file
+src/
+├── steps/
+│   ├── agify-steps.ts    # Step definitions
+│   └── hooks.ts          # Test setup
+└── utils/
+    ├── api-client.ts     # HTTP client
+    └── world.ts          # Test context
+features/
+└── agify-api-main.feature    # Test scenarios
 ```
 
-## ⚙️ Configuration
+## API Usage
 
-### Environment Variables
-No environment variables are required for basic usage.
+The complete test suite uses approximately 23 API calls. With the 100/day limit, you can run the full suite about 4 times per day.
 
-### API Configuration
-API settings can be modified in `src/utils/constants.ts`:
-
-```typescript
-export const API_CONFIG = {
-  BASE_URL: 'https://api.agify.io',
-  TIMEOUT: 10000,
-  MAX_RETRIES: 3,
-  RETRY_DELAY: 1000,
-  USER_AGENT: 'Kaluza-QA-Test/1.0.0'
-};
+For development, use:
+```bash
+npm run test:core  # Only 3 API calls
 ```
 
-### Test Configuration
-Test parameters can be adjusted in `src/utils/constants.ts`:
+## Dependencies
 
-```typescript
-export const TEST_CONFIG = {
-  DEFAULT_TIMEOUT: 30000,
-  MAX_RESPONSE_TIME: 5000,
-  BATCH_SIZE: 10,
-  RATE_LIMIT_DELAY: 100,
-  PERFORMANCE_THRESHOLD: 2000
-};
-```
+- `@cucumber/cucumber` - BDD framework
+- `axios` - HTTP client
+- `typescript` - Type safety
+- `ts-node` - TypeScript execution
 
-## 🏃 Running Tests
+## Notes
 
-### Available Scripts
-
-- `npm run build` - Compile TypeScript
-- `npm test` - Run all tests
-- `npm run test:dry` - Validate scenarios without execution
-- `npm run test:parallel` - Run tests in parallel
-- `npm run clean` - Clean build artifacts and reports
-
-### Test Execution Flow
-
-1. **Build**: TypeScript is compiled to JavaScript
-2. **Setup**: Cucumber initializes the test environment
-3. **Execution**: Feature files are processed and step definitions are executed
-4. **Reporting**: Results are generated in HTML and JSON formats
-
-## 📈 Reports
-
-Test reports are generated in the `reports/` directory:
-
-- **HTML Report**: `reports/cucumber-report.html` - Interactive HTML report
-- **JSON Report**: `reports/cucumber-report.json` - Machine-readable results
-
-### Sample Report Content
-- Test execution summary
-- Scenario results (passed/failed)
-- Step-by-step execution details
-- Performance metrics
-- Error details for failed tests
-
-## 🤝 Contributing
-
-### Adding New Tests
-
-1. Create or modify feature files in `features/`
-2. Implement step definitions in `src/steps/`
-3. Add utility functions in `src/utils/` if needed
-4. Update documentation
-
-### Code Standards
-
-- Use TypeScript for type safety
-- Follow BDD best practices
-- Include comprehensive error handling
-- Add appropriate comments and documentation
-- Use consistent naming conventions
-
-## 🔧 Technical Details
-
-### Dependencies
-
-**Runtime Dependencies:**
-- `axios`: HTTP client for API requests
-
-**Development Dependencies:**
-- `@cucumber/cucumber`: BDD testing framework
-- `typescript`: TypeScript compiler
-- `ts-node`: TypeScript execution environment
-- `@types/node`: Node.js type definitions
-
-### API Client Features
-
-- **Timeout Management**: Configurable request timeouts
-- **Error Handling**: Comprehensive error catching and reporting
-- **Country Support**: Optional country parameter for localized predictions
-- **Response Validation**: Automatic response structure validation
-
-### Testing Approach
-
-- **BDD Methodology**: Tests written in natural language
-- **Comprehensive Coverage**: Positive, negative, edge cases, and performance tests
-- **Parallel Execution**: Faster test execution through parallel processing
-- **Detailed Reporting**: Rich reporting with multiple output formats
-
-### Performance Considerations
-
-- **Response Time Monitoring**: All requests are timed
-- **Batch Processing**: Efficient handling of multiple requests
-- **Rate Limiting**: Respectful API usage patterns
-- **Resource Management**: Proper cleanup and resource management
-
-## 📞 Support
-
-For questions or issues:
-1. Check the test reports in `reports/`
-2. Review the console output for detailed error messages
-3. Verify API connectivity: `curl https://api.agify.io?name=test`
-
-## 📝 License
-
-This project is created for the Kaluza QA Engineer Technical Test.
-
----
-
-**Created by**: QA Engineer - Kaluza Technical Test  
-**Technology Stack**: TypeScript, Cucumber, Node.js  
-**API Under Test**: [agify.io](https://agify.io)  
-**Testing Framework**: BDD with Cucumber 
+- Tests are written in Gherkin (BDD) format
+- All API responses are validated for structure and content
+- Error handling is tested for invalid inputs
+- Security tests verify input sanitization 

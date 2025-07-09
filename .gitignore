@@ -46,10 +46,6 @@ temp/
 *.seed
 *.pid.lock
 
-# Package manager lock files (keep only one)
-package-lock.json
-yarn.lock
-
 # Optional npm cache directory
 .npm
 

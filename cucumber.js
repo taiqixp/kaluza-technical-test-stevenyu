@@ -2,7 +2,7 @@ module.exports = {
   default: {
     require: [
       'ts-node/register',
-      'dist/steps/**/*.js'
+      'src/steps/**/*.ts'
     ],
     format: [
       'progress-bar',
@@ -14,7 +14,7 @@ module.exports = {
     },
     dryRun: false,
     failFast: false,
-    paths: ['features/**/*.feature'],
+    paths: ['features/agify-api-main.feature'],
     worldParameters: {
       baseUrl: 'https://api.agify.io'
     }
