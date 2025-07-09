@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosResponse } from 'axios';
+import axios from 'axios';
 
 export interface AgifyResponse {
   name: string;
@@ -7,7 +7,7 @@ export interface AgifyResponse {
 }
 
 export class ApiClient {
-  private client: AxiosInstance;
+  private client: any;
   private baseURL: string;
 
   constructor(baseURL: string = 'https://api.agify.io') {
@@ -22,9 +22,9 @@ export class ApiClient {
     });
   }
 
-  async getAgeByName(name: string): Promise<AxiosResponse<AgifyResponse>> {
+  async getAgeByName(name: string): Promise<any> {
     try {
-      const response = await this.client.get<AgifyResponse>('/', {
+      const response = await this.client.get('/', {
         params: { name }
       });
       return response;
@@ -33,9 +33,9 @@ export class ApiClient {
     }
   }
 
-  async getAgeByNameWithCountry(name: string, countryId: string): Promise<AxiosResponse<AgifyResponse>> {
+  async getAgeByNameWithCountry(name: string, countryId: string): Promise<any> {
     try {
-      const response = await this.client.get<AgifyResponse>('/', {
+      const response = await this.client.get('/', {
         params: { 
           name,
           country_id: countryId 

@@ -1,7 +1,5 @@
 import { Given, When, Then } from '@cucumber/cucumber';
-import { expect } from '@cucumber/cucumber';
 import { World } from '../utils/world';
-import { AxiosResponse } from 'axios';
 
 // Helper function for assertions
 function assert(condition: boolean, message: string): void {

@@ -1,10 +1,9 @@
 import { World as CucumberWorld, IWorldOptions } from '@cucumber/cucumber';
 import { ApiClient, AgifyResponse } from './api-client';
-import { AxiosResponse } from 'axios';
 
 export class World extends CucumberWorld {
   public apiClient: ApiClient;
-  public lastResponse?: AxiosResponse<AgifyResponse>;
+  public lastResponse?: any;
   public lastError?: Error;
   public testData: Map<string, any>;
 
@@ -14,7 +13,7 @@ export class World extends CucumberWorld {
     this.testData = new Map();
   }
 
-  public setResponse(response: AxiosResponse<AgifyResponse>): void {
+  public setResponse(response: any): void {
     this.lastResponse = response;
     this.lastError = undefined;
   }
@@ -24,7 +23,7 @@ export class World extends CucumberWorld {
     this.lastResponse = undefined;
   }
 
-  public getResponse(): AxiosResponse<AgifyResponse> {
+  public getResponse(): any {
     if (!this.lastResponse) {
       throw new Error('No response available. Make sure to call the API first.');
     }

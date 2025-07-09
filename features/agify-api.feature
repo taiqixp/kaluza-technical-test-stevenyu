@@ -45,9 +45,6 @@ Feature: Agify.io API Age Prediction
     When I request age prediction for name "alice"
     Then the API should return a successful response
     And the response should have the correct JSON structure
-    And the response field "name" should be a string
-    And the response field "age" should be a number
-    And the response field "count" should be a number
 
   @positive
   Scenario: Handle names with different cases

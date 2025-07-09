@@ -91,5 +91,4 @@ Feature: Agify.io API Advanced Features
   @api-limits
   Scenario: API should handle rate limiting gracefully
     When I send many requests in quick succession
-    Then the API should either process all requests successfully
-    Or return appropriate rate limiting responses 
+    Then the API should either process all requests successfully 

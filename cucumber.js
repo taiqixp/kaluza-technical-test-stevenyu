@@ -2,7 +2,7 @@ module.exports = {
   default: {
     require: [
       'ts-node/register',
-      'src/steps/**/*.ts'
+      'dist/steps/**/*.js'
     ],
     format: [
       'progress-bar',
@@ -12,7 +12,6 @@ module.exports = {
     formatOptions: {
       snippetInterface: 'async-await'
     },
-    publishQuiet: true,
     dryRun: false,
     failFast: false,
     paths: ['features/**/*.feature'],
