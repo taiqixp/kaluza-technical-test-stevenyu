@@ -145,7 +145,7 @@ Feature: Agify.io API Age Prediction Testing
   Scenario: Test unsupported HTTP method
     When I send a POST request to the API
     Then the API should return a method not allowed error
-    And the response status should be 405
+    And the response status should be 404
 
   @negative  
   Scenario: Test invalid endpoint

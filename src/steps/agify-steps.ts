@@ -174,17 +174,25 @@ Then('the response should not execute any code', function (this: World) {
 });
 
 Then('the API should return a method not allowed error', function (this: World) {
-  assert(this.hasError() || this.getResponse().status === 405, 
-    'Expected method not allowed error (405) but got different response');
+  // agify.io API returns 404 for unsupported methods instead of 405
+  assert(this.hasError() || this.getResponse().status === 404, 
+    'Expected method not allowed error (404) but got different response');
 });
 
 Then('the response status should be {int}', function (this: World, expectedStatus: number) {
   if (this.hasError()) {
     const error = this.getError();
-    if (error.message.includes('405')) {
+    const errorMessage = error.message;
+    
+    // Extract status code from axios error message
+    if (errorMessage.includes('status code 405')) {
       assert(expectedStatus === 405, `Expected status ${expectedStatus} but got 405 from error`);
+    } else if (errorMessage.includes('status code 404')) {
+      assert(expectedStatus === 404, `Expected status ${expectedStatus} but got 404 from error`);
+    } else if (errorMessage.includes('status code 400')) {
+      assert(expectedStatus === 400, `Expected status ${expectedStatus} but got 400 from error`);
     } else {
-      assert(false, `Expected status ${expectedStatus} but got error: ${error.message}`);
+      assert(false, `Expected status ${expectedStatus} but got error: ${errorMessage}`);
     }
   } else {
     const response = this.getResponse();
