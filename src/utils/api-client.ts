@@ -35,13 +35,11 @@ export class ApiClient {
 
   async getAgeByNames(names: string[]): Promise<any> {
     try {
-      // Use axios paramsSerializer to create name[]=value&name[]=value format
-      const response = await this.client.get('/', {
-        params: { name: names },
-        paramsSerializer: {
-          indexes: null // This creates name[]=value&name[]=value format
-        }
-      });
+      // Manually construct the URL with name[]=value&name[]=value format
+      const nameParams = names.map(name => `name[]=${encodeURIComponent(name)}`).join('&');
+      const url = `/?${nameParams}`;
+      
+      const response = await this.client.get(url);
       return response;
     } catch (error) {
       throw new Error(`Batch API request failed: ${error}`);
