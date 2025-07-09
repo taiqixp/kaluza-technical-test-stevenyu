@@ -12,6 +12,8 @@
     "test:batch": "cucumber-js --tags '@batch'",
     "test:security": "cucumber-js --tags '@security'",
     "test:negative": "cucumber-js --tags '@negative'",
+    "test:data-validation": "cucumber-js --tags '@data-validation'",
+    "test:performance": "cucumber-js --tags '@performance'",
     "test:dry": "cucumber-js --dry-run",
     "test:parallel": "cucumber-js --parallel 2",
     "clean": "rm -rf dist reports",
@@ -22,6 +24,8 @@
     "pretest:batch": "npm run build",
     "pretest:security": "npm run build",
     "pretest:negative": "npm run build",
+    "pretest:data-validation": "npm run build",
+    "pretest:performance": "npm run build",
     "lint": "echo 'Linting not configured yet'",
     "start": "npm run test"
   },
