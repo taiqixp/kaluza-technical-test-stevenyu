@@ -158,4 +158,23 @@ Feature: Agify.io API Age Prediction Testing
   Scenario: API response time should be reasonable
     When I request age prediction for name "testuser"
     Then the API should return a successful response
-    And the response time should be less than 5 seconds 
+    And the response time should be less than 5 seconds
+
+  # API Error Code Tests
+  @negative @error-codes
+  Scenario: Handle missing name parameter (422 error)
+    When I request age prediction without name parameter
+    Then the API should return an error response
+    And the response should contain error message about missing parameter
+
+  @negative @error-codes
+  Scenario: Handle invalid name parameter (422 error)
+    When I request age prediction for extremely invalid name ""
+    Then the API should return a successful response
+    And the response should have count 0 and null age
+
+  @negative @error-codes
+  Scenario: Handle rate limiting gracefully (429 error)
+    When I send many rapid requests to trigger rate limit
+    Then the API should either return successful responses or rate limit error
+    And any rate limit error should be handled gracefully 

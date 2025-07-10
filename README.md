@@ -42,6 +42,15 @@ npm run test:negative
 # Run batch tests
 npm run test:batch
 
+# Run data validation tests
+npm run test:data-validation
+
+# Run performance tests  
+npm run test:performance
+
+# Run error code tests
+npm run test:error-codes
+
 # Dry run (no actual API calls)
 npm run test:dry
 ```
@@ -75,8 +84,9 @@ npm run test:dry
 - Data validation (2 scenarios)
 - Error handling (2 scenarios)
 - Performance (1 scenario)
+- Error code testing (3 scenarios)
 
-**Total: 23 test scenarios**
+**Total: 26 test scenarios**
 
 ## Project Structure
 
@@ -94,7 +104,7 @@ features/
 
 ## API Usage
 
-The complete test suite uses approximately 23 API calls. With the 100/day limit, you can run the full suite about 4 times per day.
+The complete test suite uses approximately 26 API calls. With the 100/day limit, you can run the full suite about 3-4 times per day.
 
 For development, use:
 ```bash

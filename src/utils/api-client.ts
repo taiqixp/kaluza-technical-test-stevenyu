@@ -69,4 +69,15 @@ export class ApiClient {
       throw new Error(`Request to ${endpoint} failed: ${error}`);
     }
   }
+
+  // For testing missing name parameter
+  async makeRequestWithoutNameParam(): Promise<any> {
+    try {
+      // Make request without any parameters to test missing name parameter
+      const response = await this.client.get('/');
+      return response;
+    } catch (error) {
+      throw new Error(`Request without name parameter failed: ${error}`);
+    }
+  }
 } 
