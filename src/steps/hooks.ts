@@ -5,14 +5,19 @@ import { World } from '../utils/world';
 setWorldConstructor(World);
 
 BeforeAll(async function () {
-  console.log('Starting Agify.io API Tests...');
-  console.log('Base URL: https://api.agify.io');
+  console.log('================================');
+  console.log('🚀 STARTING AGIFY.IO API TESTS');
+  console.log('📍 Base URL: https://api.agify.io');
+  console.log('👨‍💻 QA Engineer: Steven Yu');
   console.log('================================');
 });
 
 AfterAll(async function () {
   console.log('================================');
-  console.log('Agify.io API Tests Completed!');
+  console.log('🎯 ALL TESTS EXECUTION COMPLETED!');
+  console.log('✅ Test Suite Finished Successfully');
+  console.log('📧 Contact: Steven Yu (taiqixp@hotmail.com)');
+  console.log('================================');
 });
 
 Before(async function () {

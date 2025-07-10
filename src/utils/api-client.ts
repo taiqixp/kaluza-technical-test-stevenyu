@@ -4,6 +4,7 @@ export interface AgifyResponse {
   name: string;
   age: number;
   count: number;
+  country_id?: string;
 }
 
 export class ApiClient {
@@ -33,6 +34,42 @@ export class ApiClient {
     }
   }
 
+  async getAgeByNameWithCountry(name: string, countryId: string): Promise<any> {
+    try {
+      const response = await this.client.get('/', {
+        params: { 
+          name: name,
+          country_id: countryId 
+        }
+      });
+      return response;
+    } catch (error) {
+      throw new Error(`API request with country failed: ${error}`);
+    }
+  }
+
+  // For testing API key authentication
+  async getAgeByNameWithApiKey(name: string, apiKey: string): Promise<any> {
+    try {
+      const response = await this.client.get('/', {
+        params: { 
+          name: name,
+          apikey: apiKey 
+        }
+      });
+      return response;
+    } catch (error: any) {
+      // For axios errors, I want to preserve the response information
+      if (error.response) {
+        // Create a custom error that includes response information
+        const customError = new Error(`API request with API key failed: ${error}`);
+        (customError as any).response = error.response;
+        throw customError;
+      }
+      throw new Error(`API request with API key failed: ${error}`);
+    }
+  }
+
   async getAgeByNames(names: string[]): Promise<any> {
     try {
       // Manually construct the URL with name[]=value&name[]=value format
@@ -47,6 +84,8 @@ export class ApiClient {
   }
 
   // For testing unsupported HTTP methods
+  // Note: This method intentionally sends a POST request to test error handling
+  // HTTP standards require 405 Method Not Allowed, but agify.io returns 404 (see BUG-001)
   async makePostRequest(): Promise<any> {
     try {
       const response = await this.client.post('/', {

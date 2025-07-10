@@ -31,6 +31,48 @@ When('I request age prediction for name {string} again', async function (this: W
   }
 });
 
+When('I request age prediction for name {string} with invalid API key {string}', async function (this: World, name: string, apiKey: string) {
+  try {
+    const response = await this.apiClient.getAgeByNameWithApiKey(name, apiKey);
+    this.setResponse(response);
+  } catch (error) {
+    this.setError(error as Error);
+  }
+});
+
+When('I request age prediction for name {string} with API key {string}', async function (this: World, name: string, apiKey: string) {
+  // Note: API key "da4f95bdace66006249c72270a5c9cbf" is from my own registered account (unpaid)
+  // API key "fake-api-key-123" is intentionally invalid for testing 401 errors
+  try {
+    const response = await this.apiClient.getAgeByNameWithApiKey(name, apiKey);
+    this.setResponse(response);
+  } catch (error) {
+    this.setError(error as Error);
+  }
+});
+
+When('I request age prediction for name {string} with country {string}', async function (this: World, name: string, countryId: string) {
+  try {
+    const response = await this.apiClient.getAgeByNameWithCountry(name, countryId);
+    this.setResponse(response);
+  } catch (error) {
+    this.setError(error as Error);
+  }
+});
+
+When('I request localized age prediction for name {string} with country {string}', async function (this: World, name: string, countryId: string) {
+  try {
+    const response = await this.apiClient.getAgeByNameWithCountry(name, countryId);
+    this.storeTestData('localizedResponse', response);
+  } catch (error) {
+    this.setError(error as Error);
+  }
+});
+
+
+
+
+
 When('I send a batch request for multiple names', async function (this: World) {
   const names = ['michael', 'matthew', 'jane'];
   const startTime = Date.now();
@@ -174,7 +216,9 @@ Then('the response should not execute any code', function (this: World) {
 });
 
 Then('the API should return a method not allowed error', function (this: World) {
-  // agify.io API returns 404 for unsupported methods instead of 405
+  // HTTP Standards Violation: According to RFC 7231, unsupported methods should return 405 Method Not Allowed
+  // However, agify.io API returns 404 Not Found instead (documented as BUG-001 in BUG_REPORT.md)
+  // We test the actual API behavior while acknowledging this is incorrect
   assert(this.hasError() || this.getResponse().status === 404, 
     'Expected method not allowed error (404) but got different response');
 });
@@ -185,12 +229,22 @@ Then('the response status should be {int}', function (this: World, expectedStatu
     const errorMessage = error.message;
     
     // Extract status code from axios error message
+    // Note: These error codes come from actual API responses during testing
     if (errorMessage.includes('status code 405')) {
+      // Standard HTTP Method Not Allowed (tested out during my debugging, rarely returned by agify.io)
       assert(expectedStatus === 405, `Expected status ${expectedStatus} but got 405 from error`);
     } else if (errorMessage.includes('status code 404')) {
+      // agify.io returns 404 for unsupported methods (should be 405??, see BUG-001)
       assert(expectedStatus === 404, `Expected status ${expectedStatus} but got 404 from error`);
     } else if (errorMessage.includes('status code 400')) {
+      // Bad Request (malformed requests)
       assert(expectedStatus === 400, `Expected status ${expectedStatus} but got 400 from error`);
+    } else if (errorMessage.includes('status code 401')) {
+      // Unauthorized (invalid API key)
+      assert(expectedStatus === 401, `Expected status ${expectedStatus} but got 401 from error`);
+    } else if (errorMessage.includes('status code 402')) {
+      // Payment Required (inactive subscription)
+      assert(expectedStatus === 402, `Expected status ${expectedStatus} but got 402 from error`);
     } else {
       assert(false, `Expected status ${expectedStatus} but got error: ${errorMessage}`);
     }
@@ -281,4 +335,60 @@ Then('any rate limit error should be handled gracefully', function (this: World)
   // This step ensures our test framework handles rate limits gracefully
   // If we got here, it means the test didn't crash due to rate limiting
   assert(true, 'Rate limit handling verified');
+});
+
+Then('the response should contain error message {string}', function (this: World, expectedMessage: string) {
+  if (this.hasError()) {
+    const error = this.getError();
+    
+    // Try to extract original API error message from axios error
+    if ((error as any).response && (error as any).response.data && (error as any).response.data.error) {
+      const apiErrorMessage = (error as any).response.data.error;
+      assert(apiErrorMessage.includes(expectedMessage), 
+        `Expected API error message to contain '${expectedMessage}' but got: ${apiErrorMessage}`);
+    } else {
+      // Fallback to checking the wrapped error message
+      assert(error.message.includes(expectedMessage), 
+        `Expected error message to contain '${expectedMessage}' but got: ${error.message}`);
+    }
+  } else {
+    const response = this.getResponse();
+    const responseData = response.data as any;
+    
+    // Check if response has error field
+    if (responseData && responseData.error) {
+      assert(responseData.error.includes(expectedMessage), 
+        `Expected error message to contain '${expectedMessage}' but got: ${responseData.error}`);
+    } else {
+      assert(false, `Expected error message containing '${expectedMessage}' but response has no error field`);
+    }
+  }
+});
+
+Then('the response should contain country_id {string}', function (this: World, expectedCountryId: string) {
+  const responseData = this.getResponseData();
+  assert(responseData.country_id === expectedCountryId, 
+    `Expected country_id '${expectedCountryId}' but got '${responseData.country_id}'`);
+});
+
+Then('both responses should have the same name {string}', function (this: World, expectedName: string) {
+  const globalResponse = this.getResponseData();
+  const localizedResponse = this.getTestData('localizedResponse');
+  
+  assert(globalResponse.name === expectedName, 
+    `Expected global response name '${expectedName}' but got '${globalResponse.name}'`);
+  assert(localizedResponse.data.name === expectedName, 
+    `Expected localized response name '${expectedName}' but got '${localizedResponse.data.name}'`);
+});
+
+Then('the localized response should contain country_id {string}', function (this: World, expectedCountryId: string) {
+  const localizedResponse = this.getTestData('localizedResponse');
+  assert(localizedResponse.data.country_id === expectedCountryId, 
+    `Expected localized response country_id '${expectedCountryId}' but got '${localizedResponse.data.country_id}'`);
+});
+
+Then('the global response should not contain country_id', function (this: World) {
+  const globalResponse = this.getResponseData();
+  assert(!globalResponse.country_id, 
+    `Expected global response to not contain country_id but got '${globalResponse.country_id}'`);
 }); 
