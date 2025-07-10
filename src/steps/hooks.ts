@@ -6,17 +6,17 @@ setWorldConstructor(World);
 
 BeforeAll(async function () {
   console.log('================================');
-  console.log('🚀 STARTING AGIFY.IO API TESTS');
-  console.log('📍 Base URL: https://api.agify.io');
-  console.log('👨‍💻 QA Engineer: Steven Yu');
+  console.log(' STARTING AGIFY.IO API TESTS');
+  console.log(' Base URL: https://api.agify.io');
+  console.log(' QA Engineer: Steven Yu');
   console.log('================================');
 });
 
 AfterAll(async function () {
   console.log('================================');
-  console.log('🎯 ALL TESTS EXECUTION COMPLETED!');
-  console.log('✅ Test Suite Finished Successfully');
-  console.log('📧 Contact: Steven Yu (taiqixp@hotmail.com)');
+  console.log(' ALL TESTS EXECUTION COMPLETED!');
+  console.log(' Test Suite Finished Successfully');
+  console.log(' Contact: Steven Yu (taiqixp@hotmail.com)');
   console.log('================================');
 });
 
