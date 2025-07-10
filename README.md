@@ -15,6 +15,18 @@ This project tests the agify.io API which predicts age based on names. The API r
 - Localization: `https://api.agify.io?name=michael&country_id=US` → includes `country_id` in response
 - Free limit: 100 requests per day
 
+## Prerequisites
+
+**Environment Requirements:**
+- **Node.js**: >=16.0.0 (tested with v20.18.0)
+- **npm**: >=8.0.0 (tested with v10.9.2)
+
+**Check your versions:**
+```bash
+node --version  # Should be 16.0.0 or higher
+npm --version   # Should be 8.0.0 or higher
+```
+
 ## Installation
 
 ```bash
@@ -187,6 +199,23 @@ npm install
 npm run build
 ```
 
+### Node.js/npm Version Issues
+**Problem**: Older versions may cause compatibility issues
+
+**Solution**: Update to required versions:
+```bash
+# Check current versions
+node --version && npm --version
+
+# If using nvm (Node Version Manager)
+nvm install 20
+nvm use 20
+
+# Verify installation
+node --version  # Should show v20.x.x or higher
+npm --version   # Should show 8.x.x or higher
+```
+
 ## Dependencies
 
 - `@cucumber/cucumber` - BDD framework
@@ -198,13 +227,17 @@ npm run build
 
 ### Quick Demo
 ```bash
-# Install dependencies
+# 1. Verify environment
+node --version  # Requires >=16.0.0
+npm --version   # Requires >=8.0.0
+
+# 2. Install dependencies
 npm install
 
-# Run smoke tests (safe with API limits)
+# 3. Run smoke tests (safe with API limits)
 npm run test:smoke
 
-# View generated report
+# 4. View generated report
 open reports/cucumber-report-*.html
 ```
 
