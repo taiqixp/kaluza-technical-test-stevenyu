@@ -10,6 +10,7 @@ build/
 
 # Test reports
 reports/
+!reports/cucumber-report-2025-07-10T22-34-21.*
 *.log
 
 # TypeScript cache

@@ -1,0 +1,3538 @@
+[
+  {
+    "description": "  As a QA Engineer testing the Agify.io API\n  I want to verify the API functionality and edge cases\n  So that I can ensure the API works as expected",
+    "elements": [
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;successfully-predict-age-for-the-example-name-from-requirements",
+        "keyword": "Scenario",
+        "line": 9,
+        "name": "Successfully predict age for the example name from requirements",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 116750
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 10,
+            "name": "I request age prediction for name \"billybob\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1597023040
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "the API should return a successful response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 151458
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "the response should contain the name \"billybob\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 130874
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "the response should contain a numeric age",
+            "match": {
+              "location": "dist/steps/agify-steps.js:112"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 82540
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "the response should contain a count value greater than 0",
+            "match": {
+              "location": "dist/steps/agify-steps.js:117"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 74250
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 212750
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@smoke",
+            "line": 8
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;successfully-predict-age-for-a-common-name",
+        "keyword": "Scenario",
+        "line": 17,
+        "name": "Successfully predict age for a common name",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 87667
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 18,
+            "name": "I request age prediction for name \"michael\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 304989667
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 19,
+            "name": "the API should return a successful response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 188999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "the response should contain the name \"michael\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 184166
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 21,
+            "name": "the response should contain a numeric age",
+            "match": {
+              "location": "dist/steps/agify-steps.js:112"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 50208
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 22,
+            "name": "the response should contain a count value greater than 0",
+            "match": {
+              "location": "dist/steps/agify-steps.js:117"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 39667
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 89958
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@smoke",
+            "line": 16
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;verify-response-structure-and-data-types",
+        "keyword": "Scenario",
+        "line": 25,
+        "name": "Verify response structure and data types",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 76458
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 26,
+            "name": "I request age prediction for name \"alice\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 298317208
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 27,
+            "name": "the API should return a successful response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 113209
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 28,
+            "name": "the response should have the correct JSON structure",
+            "match": {
+              "location": "dist/steps/agify-steps.js:122"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 144166
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 257500
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@smoke",
+            "line": 24
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;successfully-predict-age-for-various-names",
+        "keyword": "Scenario Outline",
+        "line": 41,
+        "name": "Successfully predict age for various names",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 74165
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 33,
+            "name": "I request age prediction for name \"john\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 290998791
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 34,
+            "name": "the API should return a successful response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 97249
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 35,
+            "name": "the response should contain the name \"john\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 66959
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 36,
+            "name": "the response should contain a numeric age",
+            "match": {
+              "location": "dist/steps/agify-steps.js:112"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 32584
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 37,
+            "name": "the response should contain a count value greater than 0",
+            "match": {
+              "location": "dist/steps/agify-steps.js:117"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 33084
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 98041
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@positive",
+            "line": 31
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;successfully-predict-age-for-various-names",
+        "keyword": "Scenario Outline",
+        "line": 42,
+        "name": "Successfully predict age for various names",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 57499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 33,
+            "name": "I request age prediction for name \"mary\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 291590332
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 34,
+            "name": "the API should return a successful response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 123375
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 35,
+            "name": "the response should contain the name \"mary\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 82750
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 36,
+            "name": "the response should contain a numeric age",
+            "match": {
+              "location": "dist/steps/agify-steps.js:112"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 48374
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 37,
+            "name": "the response should contain a count value greater than 0",
+            "match": {
+              "location": "dist/steps/agify-steps.js:117"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 72916
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 340999
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@positive",
+            "line": 31
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;successfully-predict-age-for-various-names",
+        "keyword": "Scenario Outline",
+        "line": 43,
+        "name": "Successfully predict age for various names",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 72458
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 33,
+            "name": "I request age prediction for name \"sarah\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 299350875
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 34,
+            "name": "the API should return a successful response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 63749
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 35,
+            "name": "the response should contain the name \"sarah\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 54082
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 36,
+            "name": "the response should contain a numeric age",
+            "match": {
+              "location": "dist/steps/agify-steps.js:112"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 22249
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 37,
+            "name": "the response should contain a count value greater than 0",
+            "match": {
+              "location": "dist/steps/agify-steps.js:117"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 22291
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 87542
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@positive",
+            "line": 31
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;handle-names-with-different-cases",
+        "keyword": "Scenario",
+        "line": 46,
+        "name": "Handle names with different cases",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 88166
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 47,
+            "name": "I request age prediction for name \"ROBERT\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 294411791
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 48,
+            "name": "the API should return a successful response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 74583
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 49,
+            "name": "the response should contain the name \"ROBERT\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 60625
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 50,
+            "name": "the response should contain a numeric age",
+            "match": {
+              "location": "dist/steps/agify-steps.js:112"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 26624
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 73457
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@positive",
+            "line": 45
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;handle-longer-names",
+        "keyword": "Scenario",
+        "line": 53,
+        "name": "Handle longer names",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 37041
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 54,
+            "name": "I request age prediction for name \"christopher\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1304580583
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 55,
+            "name": "the API should return a successful response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 80416
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 56,
+            "name": "the response should contain the name \"christopher\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 56583
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 57,
+            "name": "the response should contain a numeric age",
+            "match": {
+              "location": "dist/steps/agify-steps.js:112"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 27708
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 56916
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@positive",
+            "line": 52
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;handle-names-with-special-characters",
+        "keyword": "Scenario",
+        "line": 60,
+        "name": "Handle names with special characters",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 78958
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 61,
+            "name": "I request age prediction for name \"josé\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 407287083
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 62,
+            "name": "the API should return a successful response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 60292
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 63,
+            "name": "the response should contain the name \"josé\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 37583
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 64,
+            "name": "the response should contain a numeric age",
+            "match": {
+              "location": "dist/steps/agify-steps.js:112"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17625
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 32583
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@positive",
+            "line": 59
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;handle-chinese-names",
+        "keyword": "Scenario",
+        "line": 67,
+        "name": "Handle Chinese names",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 27540
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 68,
+            "name": "I request age prediction for name \"李明\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 309704958
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 69,
+            "name": "the API should return a successful response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 68457
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 70,
+            "name": "the response should contain the name \"李明\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 50583
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 45708
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@positive",
+            "line": 66
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;verify-age-prediction-consistency",
+        "keyword": "Scenario",
+        "line": 73,
+        "name": "Verify age prediction consistency",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 71708
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 74,
+            "name": "I request age prediction for name \"elizabeth\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 298507834
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 75,
+            "name": "I request age prediction for name \"elizabeth\" again",
+            "match": {
+              "location": "dist/steps/agify-steps.js:23"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 303345041
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 76,
+            "name": "both responses should return the same age",
+            "match": {
+              "location": "dist/steps/agify-steps.js:142"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 187333
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 77,
+            "name": "both responses should return the same count",
+            "match": {
+              "location": "dist/steps/agify-steps.js:147"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 50250
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 56459
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@positive",
+            "line": 72
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;verify-case-sensitivity-consistency",
+        "keyword": "Scenario",
+        "line": 80,
+        "name": "Verify case sensitivity consistency",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 28916
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 81,
+            "name": "I request age prediction for name \"john\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 282579625
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 82,
+            "name": "I request age prediction for name \"JOHN\" again",
+            "match": {
+              "location": "dist/steps/agify-steps.js:23"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 296309458
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 83,
+            "name": "both responses should return the same age",
+            "match": {
+              "location": "dist/steps/agify-steps.js:142"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 65416
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 84,
+            "name": "both responses should return the same count",
+            "match": {
+              "location": "dist/steps/agify-steps.js:147"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 24959
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 41667
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@positive",
+            "line": 79
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;handle-very-short-names",
+        "keyword": "Scenario",
+        "line": 88,
+        "name": "Handle very short names",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 26582
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 89,
+            "name": "I request age prediction for name \"a\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 290387083
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 90,
+            "name": "the API should return a successful response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 78499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 91,
+            "name": "the response should contain the name \"a\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 52333
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 42000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@edge-case",
+            "line": 87
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;handle-empty-name-parameter",
+        "keyword": "Scenario",
+        "line": 94,
+        "name": "Handle empty name parameter",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 31541
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 95,
+            "name": "I request age prediction for name \"\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 283557499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 96,
+            "name": "the API should return a successful response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 56082
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 97,
+            "name": "the response should contain the name \"\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 32584
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 98,
+            "name": "the response should have count 0 and null age",
+            "match": {
+              "location": "dist/steps/agify-steps.js:133"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 119833
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 37083
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@edge-case",
+            "line": 93
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;handle-names-with-numbers",
+        "keyword": "Scenario",
+        "line": 101,
+        "name": "Handle names with numbers",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 21583
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 102,
+            "name": "I request age prediction for name \"john123\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 295142541
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 103,
+            "name": "the API should return a successful response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 49582
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 104,
+            "name": "the response should contain the name \"john123\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 30791
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 26832
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@edge-case",
+            "line": 100
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;handle-names-with-spaces",
+        "keyword": "Scenario",
+        "line": 107,
+        "name": "Handle names with spaces",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 16209
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 108,
+            "name": "I request age prediction for name \"john max\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 303084457
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 109,
+            "name": "the API should return a successful response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 55540
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 110,
+            "name": "the response should contain the name \"john max\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 33875
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 35041
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@edge-case",
+            "line": 106
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;handle-names-with-hyphens",
+        "keyword": "Scenario",
+        "line": 113,
+        "name": "Handle names with hyphens",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 20457
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 114,
+            "name": "I request age prediction for name \"mary-jane\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 283401791
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 115,
+            "name": "the API should return a successful response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 76957
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 116,
+            "name": "the response should contain the name \"mary-jane\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 60874
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 34958
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@edge-case",
+            "line": 112
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;handle-very-uncommon-names",
+        "keyword": "Scenario",
+        "line": 119,
+        "name": "Handle very uncommon names",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 26667
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 120,
+            "name": "I request age prediction for name \"xyzzyx\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 299112624
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 121,
+            "name": "the API should return a successful response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 200208
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 122,
+            "name": "the response should contain the name \"xyzzyx\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 56249
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 123,
+            "name": "the response count might be 0 for uncommon names",
+            "match": {
+              "location": "dist/steps/agify-steps.js:128"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 855999
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 93249
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@edge-case",
+            "line": 118
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;successfully-predict-age-for-multiple-names-in-batch",
+        "keyword": "Scenario",
+        "line": 127,
+        "name": "Successfully predict age for multiple names in batch",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 37500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 128,
+            "name": "I send a batch request for multiple names",
+            "match": {
+              "location": "dist/steps/agify-steps.js:70"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 352091999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 129,
+            "name": "the API should return a successful response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 45415
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 130,
+            "name": "the batch response should contain all requested names",
+            "match": {
+              "location": "dist/steps/agify-steps.js:152"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 82207
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 131,
+            "name": "the batch response should be faster than individual requests",
+            "match": {
+              "location": "dist/steps/agify-steps.js:166"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 26958
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 17332
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@batch",
+            "line": 126
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;handle-potential-xss-injection",
+        "keyword": "Scenario",
+        "line": 135,
+        "name": "Handle potential XSS injection",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 14041
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 136,
+            "name": "I request age prediction for name \"<script>alert('xss')</script>\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 308825459
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 137,
+            "name": "the API should return a successful response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 73415
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 138,
+            "name": "the response should contain the name \"<script>alert('xss')</script>\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 55750
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 139,
+            "name": "the response should not execute any code",
+            "match": {
+              "location": "dist/steps/agify-steps.js:174"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 127333
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 44499
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@security",
+            "line": 134
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;handle-sql-injection-attempt",
+        "keyword": "Scenario",
+        "line": 142,
+        "name": "Handle SQL injection attempt",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 37374
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 143,
+            "name": "I request age prediction for name \"'; DROP TABLE users; --\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 299648917
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 144,
+            "name": "the API should return a successful response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 86875
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 145,
+            "name": "the response should contain the name \"'; DROP TABLE users; --\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 68708
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 146,
+            "name": "the response should not execute any code",
+            "match": {
+              "location": "dist/steps/agify-steps.js:174"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 24292
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 60207
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@security",
+            "line": 141
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;test-unsupported-http-method",
+        "keyword": "Scenario",
+        "line": 150,
+        "name": "Test unsupported HTTP method",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 31084
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 151,
+            "name": "I send a POST request to the API",
+            "match": {
+              "location": "dist/steps/agify-steps.js:84"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 290166792
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 152,
+            "name": "the API should return a method not allowed error",
+            "match": {
+              "location": "dist/steps/agify-steps.js:184"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 59667
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 153,
+            "name": "the response status should be 404",
+            "match": {
+              "location": "dist/steps/agify-steps.js:190"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 94290
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 31208
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 149
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;test-invalid-endpoint",
+        "keyword": "Scenario",
+        "line": 156,
+        "name": "Test invalid endpoint",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 19832
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 157,
+            "name": "I request age prediction from wrong endpoint \"/api/wrong\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:93"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 282678958
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 158,
+            "name": "the API should return a not found error",
+            "match": {
+              "location": "dist/steps/agify-steps.js:225"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 156417
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 159,
+            "name": "the response status should be 404",
+            "match": {
+              "location": "dist/steps/agify-steps.js:190"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 38833
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 247916
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 155
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;api-response-time-should-be-reasonable",
+        "keyword": "Scenario",
+        "line": 163,
+        "name": "API response time should be reasonable",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 31417
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 164,
+            "name": "I request age prediction for name \"testuser\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 298662291
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 165,
+            "name": "the API should return a successful response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 56207
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 166,
+            "name": "the response time should be less than 5 seconds",
+            "match": {
+              "location": "dist/steps/agify-steps.js:138"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 107540
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 37958
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@performance",
+            "line": 162
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;successfully-predict-age-with-country-localization",
+        "keyword": "Scenario",
+        "line": 170,
+        "name": "Successfully predict age with country localization",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 20832
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 171,
+            "name": "I request age prediction for name \"michael\" with country \"US\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:52"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 392911541
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 172,
+            "name": "the API should return a successful response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 73167
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 173,
+            "name": "the response should contain the name \"michael\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 49666
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 174,
+            "name": "the response should contain a numeric age",
+            "match": {
+              "location": "dist/steps/agify-steps.js:112"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 27041
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 175,
+            "name": "the response should contain country_id \"US\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:324"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 127500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 176,
+            "name": "the response should contain a count value greater than 0",
+            "match": {
+              "location": "dist/steps/agify-steps.js:117"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 20040
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 39875
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@localization",
+            "line": 169
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;test-age-prediction-with-different-countries",
+        "keyword": "Scenario Outline",
+        "line": 188,
+        "name": "Test age prediction with different countries",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 30582
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 180,
+            "name": "I request age prediction for name \"anna\" with country \"US\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:52"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 297673917
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 181,
+            "name": "the API should return a successful response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 82207
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 182,
+            "name": "the response should contain the name \"anna\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 51459
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 183,
+            "name": "the response should contain country_id \"US\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:324"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 42500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 184,
+            "name": "the response should contain a numeric age",
+            "match": {
+              "location": "dist/steps/agify-steps.js:112"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 19916
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 42583
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@localization",
+            "line": 178
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;test-age-prediction-with-different-countries",
+        "keyword": "Scenario Outline",
+        "line": 189,
+        "name": "Test age prediction with different countries",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 27165
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 180,
+            "name": "I request age prediction for name \"anna\" with country \"AU\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:52"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 298123499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 181,
+            "name": "the API should return a successful response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 108084
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 182,
+            "name": "the response should contain the name \"anna\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 64540
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 183,
+            "name": "the response should contain country_id \"AU\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:324"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 44915
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 184,
+            "name": "the response should contain a numeric age",
+            "match": {
+              "location": "dist/steps/agify-steps.js:112"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 25125
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 38916
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@localization",
+            "line": 178
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;test-age-prediction-with-different-countries",
+        "keyword": "Scenario Outline",
+        "line": 190,
+        "name": "Test age prediction with different countries",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 49541
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 180,
+            "name": "I request age prediction for name \"anna\" with country \"CA\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:52"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 311460708
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 181,
+            "name": "the API should return a successful response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 68833
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 182,
+            "name": "the response should contain the name \"anna\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 69292
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 183,
+            "name": "the response should contain country_id \"CA\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:324"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 45958
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 184,
+            "name": "the response should contain a numeric age",
+            "match": {
+              "location": "dist/steps/agify-steps.js:112"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 53458
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 48624
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@localization",
+            "line": 178
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;test-age-prediction-with-different-countries",
+        "keyword": "Scenario Outline",
+        "line": 191,
+        "name": "Test age prediction with different countries",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 31584
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 180,
+            "name": "I request age prediction for name \"anna\" with country \"GB\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:52"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 305786625
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 181,
+            "name": "the API should return a successful response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 74624
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 182,
+            "name": "the response should contain the name \"anna\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 53916
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 183,
+            "name": "the response should contain country_id \"GB\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:324"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 38125
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 184,
+            "name": "the response should contain a numeric age",
+            "match": {
+              "location": "dist/steps/agify-steps.js:112"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 25125
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 44917
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@localization",
+            "line": 178
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;compare-age-prediction-with-and-without-country",
+        "keyword": "Scenario",
+        "line": 194,
+        "name": "Compare age prediction with and without country",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 32457
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 195,
+            "name": "I request age prediction for name \"david\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 285184000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 196,
+            "name": "I request localized age prediction for name \"david\" with country \"US\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:61"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 302022125
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 197,
+            "name": "both responses should have the same name \"david\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:328"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 233665
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 198,
+            "name": "the localized response should contain country_id \"US\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:334"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 66457
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 199,
+            "name": "the global response should not contain country_id",
+            "match": {
+              "location": "dist/steps/agify-steps.js:338"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 36875
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 42500
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@localization",
+            "line": 193
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;handle-invalid-country-code",
+        "keyword": "Scenario",
+        "line": 202,
+        "name": "Handle invalid country code",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 26125
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 203,
+            "name": "I request age prediction for name \"john\" with country \"INVALID\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:52"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 301653875
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 204,
+            "name": "the API should return a successful response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 80334
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 205,
+            "name": "the response should contain the name \"john\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 41542
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 206,
+            "name": "the response should contain country_id \"INVALID\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:324"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 29833
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 36792
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@localization",
+            "line": 201
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;test-localization-with-international-names",
+        "keyword": "Scenario",
+        "line": 209,
+        "name": "Test localization with international names",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 23083
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 210,
+            "name": "I request age prediction for name \"josé\" with country \"ES\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:52"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 302304000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 211,
+            "name": "the API should return a successful response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 80291
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 212,
+            "name": "the response should contain the name \"josé\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 54792
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 213,
+            "name": "the response should contain country_id \"ES\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:324"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 38167
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 53708
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@localization",
+            "line": 208
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;test-chinese-names-with-china-country-code",
+        "keyword": "Scenario",
+        "line": 216,
+        "name": "Test Chinese names with China country code",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 33708
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 217,
+            "name": "I request age prediction for name \"王磊\" with country \"CN\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:52"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 296948084
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 218,
+            "name": "the API should return a successful response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 70874
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 219,
+            "name": "the response should contain the name \"王磊\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:108"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 46416
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 220,
+            "name": "the response should contain country_id \"CN\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:324"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 118458
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 91667
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@localization",
+            "line": 215
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;handle-missing-name-parameter-(422-error)",
+        "keyword": "Scenario",
+        "line": 224,
+        "name": "Handle missing name parameter (422 error)",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 29624
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 225,
+            "name": "I request age prediction without name parameter",
+            "match": {
+              "location": "dist/steps/agify-steps.js:229"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 407354958
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 226,
+            "name": "the API should return an error response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:262"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 271374
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 227,
+            "name": "the response should contain error message about missing parameter",
+            "match": {
+              "location": "dist/steps/agify-steps.js:265"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 87333
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 47959
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 223
+          },
+          {
+            "name": "@error-codes",
+            "line": 223
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;handle-invalid-name-parameter-(422-error)",
+        "keyword": "Scenario",
+        "line": 230,
+        "name": "Handle invalid name parameter (422 error)",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 33290
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 231,
+            "name": "I request age prediction for extremely invalid name \"\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:239"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 405124749
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 232,
+            "name": "the API should return a successful response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 64624
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 233,
+            "name": "the response should have count 0 and null age",
+            "match": {
+              "location": "dist/steps/agify-steps.js:133"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 22875
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 39083
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 229
+          },
+          {
+            "name": "@error-codes",
+            "line": 229
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;handle-rate-limiting-gracefully-(429-error)",
+        "keyword": "Scenario",
+        "line": 236,
+        "name": "Handle rate limiting gracefully (429 error)",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 23250
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 237,
+            "name": "I send many rapid requests to trigger rate limit",
+            "match": {
+              "location": "dist/steps/agify-steps.js:248"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1007078207
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 238,
+            "name": "the API should either return successful responses or rate limit error",
+            "match": {
+              "location": "dist/steps/agify-steps.js:275"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 201415
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 239,
+            "name": "any rate limit error should be handled gracefully",
+            "match": {
+              "location": "dist/steps/agify-steps.js:294"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 51875
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 45457
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 235
+          },
+          {
+            "name": "@error-codes",
+            "line": 235
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;handle-invalid-api-key-(401-error)",
+        "keyword": "Scenario",
+        "line": 242,
+        "name": "Handle invalid API key (401 error)",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 28207
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 243,
+            "name": "I request age prediction for name \"john\" with invalid API key \"fake-api-key-123\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:32"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 316830584
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 244,
+            "name": "the API should return an error response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:262"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 65125
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 245,
+            "name": "the response status should be 401",
+            "match": {
+              "location": "dist/steps/agify-steps.js:190"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 43457
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 246,
+            "name": "the response should contain error message \"Invalid API key\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:299"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 186874
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 44459
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 241
+          },
+          {
+            "name": "@error-codes",
+            "line": 241
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agify.io-api-age-prediction-testing;handle-inactive-subscription-(402-error)",
+        "keyword": "Scenario",
+        "line": 249,
+        "name": "Handle inactive subscription (402 error)",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 28374
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 252,
+            "name": "I request age prediction for name \"john\" with API key \"da4f95bdace66006249c72270a5c9cbf\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 294666041
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 253,
+            "name": "the API should return an error response",
+            "match": {
+              "location": "dist/steps/agify-steps.js:262"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 98458
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 254,
+            "name": "the response status should be 402",
+            "match": {
+              "location": "dist/steps/agify-steps.js:190"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 56415
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 255,
+            "name": "the response should contain error message \"No active subscription\"",
+            "match": {
+              "location": "dist/steps/agify-steps.js:299"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 35292
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 32666
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 1
+          },
+          {
+            "name": "@agify",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 248
+          },
+          {
+            "name": "@error-codes",
+            "line": 248
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "agify.io-api-age-prediction-testing",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Agify.io API Age Prediction Testing",
+    "tags": [
+      {
+        "name": "@api",
+        "line": 1
+      },
+      {
+        "name": "@agify",
+        "line": 1
+      }
+    ],
+    "uri": "features/agify-api-main.feature"
+  }
+]
