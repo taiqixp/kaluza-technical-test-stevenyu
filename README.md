@@ -227,17 +227,21 @@ npm --version   # Should show 8.x.x or higher
 
 ### Quick Demo
 ```bash
-# 1. Verify environment
+# 1. Clone the repository
+git clone https://github.com/taiqixp/kaluza-technical-test-stevenyu.git
+cd kaluza-technical-test-stevenyu
+
+# 2. Verify environment
 node --version  # Requires >=16.0.0
 npm --version   # Requires >=8.0.0
 
-# 2. Install dependencies
+# 3. Install dependencies
 npm install
 
-# 3. Run smoke tests (safe with API limits)
+# 4. Run smoke tests (safe with API limits)
 npm run test:smoke
 
-# 4. View generated report
+# 5. View generated report
 open reports/cucumber-report-*.html
 ```
 
